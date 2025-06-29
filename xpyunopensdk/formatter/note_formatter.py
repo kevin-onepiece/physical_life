@@ -1,4 +1,4 @@
-import util.encoding as encoding
+import xpyunopensdk.util.encoding as encoding
 
 ROW_MAX_CHAR_LEN = 32
 MAX_NAME_CHAR_LEN = 20

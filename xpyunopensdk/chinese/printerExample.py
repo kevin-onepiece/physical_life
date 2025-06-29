@@ -1,7 +1,7 @@
-import model.model as model
-import util.xputil as util
-import service.xpyunservice as service
-import formatter.note_formatter as formatter
+import xpyunopensdk.model.model as model
+import xpyunopensdk.util.xputil as util
+import xpyunopensdk.service.xpyunservice as service
+import xpyunopensdk.formatter.note_formatter as formatter
 import re
 import base64
 

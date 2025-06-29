@@ -1,5 +1,5 @@
-import model.model as model
-import service.httpclient as httpclient
+import xpyunopensdk.model.model as model
+import xpyunopensdk.service.httpclient as httpclient
 
 BASE_URL = 'https://open.xpyun.net/api/openapi'
 

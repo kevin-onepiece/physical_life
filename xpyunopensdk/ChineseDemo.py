@@ -1,5 +1,5 @@
 # import xpyunopensdk.chinese.xpsdkdemo as demo
-import chinese.printerExample as chinese
+import xpyunopensdk.chinese.printerExample as chinese
 
 if __name__ == '__main__':
 

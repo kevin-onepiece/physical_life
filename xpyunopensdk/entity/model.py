@@ -1,4 +1,4 @@
-import xpyunopensdk.util.xputil as util
+import util.xputil as util
 
 
 class RestRequest:

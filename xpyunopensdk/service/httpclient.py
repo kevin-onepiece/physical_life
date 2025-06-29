@@ -1,6 +1,6 @@
 import requests
 import json
-import model.model as model
+import xpyunopensdk.model.model as model
 
 """
  发送http的json请求
