@@ -1,18 +1,39 @@
 from xpyunopensdk.service import xpyunservice
-from xpyunopensdk.model import model as model
+from xpyunopensdk.model import model
+from xpyunopensdk.util import xputil
+import time
 
-# 构造打印机 item
-printer_item = model.PrinterItem(sn="C58HHWL46250006", name="打印机")
-# 构造请求对象
-request = model.AddPrinterRequest(
-    user="kevinfu2048@foxmail.com",
-    userKey="9eb5e43619fa4f5796a31e4667371f15",
-    sign="签名",
-    debug=False,
-    timestamp=1234567890,
-    items=[printer_item]
-)
+# 构造请求对象-公共参数
+user_name = "kevinfu2048@foxmail.com"
+user_key = "9eb5e43619fa4f5796a31e4667371f15"
+current_time = int(time.time())
+sn = "xx"
 
-# 调用批量添加打印机接口
-result = xpyunservice.xpYunAddPrinters(request)
-print(result)
+# 添加打印机
+def add_printer():
+    request = model.AddPrinterRequest(user_name, user_key)
+    request.sign = xputil.sign(user_name + user_key + str(current_time))  # 按API文档生成
+    request.debug = True
+    # 获取当前时间戳
+    request.timestamp = current_time  # 当前时间戳
+    # 通常还需要调用 request.generateSign() 方法自动生成 sign
+    # 构造打印机 item
+    printer_item = model.AddPrinterRequestItem()
+    printer_item.sn = sn
+    printer_item.name = "打印机"
+    request.items = [printer_item]
+    # 调用批量添加打印机接口
+    result = xpyunservice.xpYunAddPrinters(request)
+    print(result)
+
+def do_print():
+    request = model.PrintRequest(user_name, user_key)
+    request.sign = xputil.sign(user_name + user_key + str(current_time))  # 按API文档生成
+    request.debug = True
+    request.timestamp = current_time
+    request.content = "实物人生"
+    request.sn = sn
+    xpyunservice.xpYunPrint(request)
+
+if __name__ == '__main__':
+    add_printer()

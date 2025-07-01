@@ -1,4 +1,4 @@
-import util.xputil as util
+import xpyunopensdk.util.xputil as util
 
 
 class RestRequest:
@@ -11,7 +11,7 @@ class RestRequest:
     def __init__(self, user, userKey):
         self.user = user
         self.userKey = userKey
-        self.timestamp = util.getMillisecond()
+        self.timestamp = util.getSeconds()
 
     def generateSign(self):
         self.sign = util.sign(self.user + self.userKey + str(self.timestamp))

@@ -14,9 +14,9 @@ def sign(source: str):
 
 
 # 获得毫秒数
-def getMillisecond():
+def getSeconds():
     t = time.time()
-    return int(round(t * 1000))
+    return int(round(t))
 
 # 字符串重复多次
 def strRepeat(str, times):
