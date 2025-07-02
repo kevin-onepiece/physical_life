@@ -5,9 +5,9 @@ import time
 
 # 构造请求对象-公共参数
 user_name = "kevinfu2048@foxmail.com"
-user_key = "9eb5e43619fa4f5796a31e4667371f15"
+user_key = "e96c5cebfb0f4de69035f03c726be762"
 current_time = int(time.time())
-sn = "xx"
+sn = "25GTGERACTE1448"
 
 # 添加打印机
 def add_printer():
@@ -31,9 +31,10 @@ def do_print():
     request.sign = xputil.sign(user_name + user_key + str(current_time))  # 按API文档生成
     request.debug = True
     request.timestamp = current_time
-    request.content = "实物人生"
+    request.content = "实物人生-下班打印"
     request.sn = sn
     xpyunservice.xpYunPrint(request)
 
 if __name__ == '__main__':
-    add_printer()
+    # add_printer()
+    do_print()
